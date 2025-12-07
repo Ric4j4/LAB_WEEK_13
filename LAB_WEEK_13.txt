@@ -1,0 +1,12 @@
+1) Alasan MVVM penting adalah karena MVVM itu membedakan atau membuat agar UI, data, dan logika bisnis dipisahkan agar kode lebih rapi dan struktural, UI tidak tergantung pada logika bisnis, pengujian lebih mudah karena ViemModel dapat dilakukan pengujian tanpa UI, sangat cocok untuk aplikasi yang rumit dan besar, memiliki kinerja baik dengan LiveData/Flow + Data Binding.
+   Pada kode saya Model : Movie.kt, MovieDao.kt, MovieDatabase.kt, MovieService.kt, MovieRepository.kt.
+   View: MainActivity.kt, DetailsActivity.kt, activity_main.xml, activity_details.xml, RecyclerView.
+   ViewModel: MovieViewModel.kt dan MovieViewModelFactory.kt.
+
+2) Data Binding lebih efisien daripada metode normal karena findVieById tidak diperlukan lagi, UI dan ViewModel langsung terhubung tanpa memperbarui adapter secara manual, risiko ID salah dan cast error tidak ada sehingga aman, boilerplate lebih dikit, adanya perubahan data otomatis oleh UI (lifecycle aware).
+
+3) Singleton Pattern penting karena membuat room database itu sangat berang sehingga dapat menyebabkan crash, race condition, dan memory leak,hanya ada satu instance database sehingga databasenya konsisten selama lifecycle, @volatile dan synchronized menyebabkan database baru tidak dibuat oleh thread dan database tetap aman, kemudian database hanya dibuat sekali sehingga kinerja lebih efektif dan efisien.
+
+4) Repository Pattern penting karena sumber data akan dipisahkan dari UI karena ViewModel tidak tahu data tersebut dari API atau database, mendukung situasi offline karena data disimpan room, mudah untuk dilakukan maintance karena jika API berubah maka repository tinggal diperbarui saja, dan data yang dikirim valid sehingga konsisten.
+
+5) Ada. Alarm Manager (task dijadwalkan berkala), Foreground Service (servis jalan terus), Firebase Cloud Messaging (FCM), Refresh manual, update ketika membuka aplikasi
